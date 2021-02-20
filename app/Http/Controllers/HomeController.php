@@ -24,7 +24,7 @@ class HomeController extends Controller
         $tag  = $request->tag;
         $response = Http::attach(
             'data', file_get_contents($file->getRealPath()), $file->getFilename()
-        )->post(env('DDBMS_API').'/file/upload' ,[
+        )->post(config('DDBMS.API').'/file/upload' ,[
             'tag' => $tag,
             'key' => Auth::user()->id
         ]);
