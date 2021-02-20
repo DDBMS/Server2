@@ -24,13 +24,11 @@ class HomeController extends Controller
         $tag  = $request->tag;
         $response = Http::attach(
             'data', file_get_contents($file->getRealPath()), $file->getFilename()
-        )->post( "http://t22.tfcis.org:10022/file/upload",[
+        )->post(env('DDBMS_API').'/file/upload' ,[
             'tag' => $tag,
             'key' => Auth::user()->id
         ]);
-
-        #env('DDBMS_API')
-        return response()->json([]);
+        return response()->json($response->json());
     }
 
 
