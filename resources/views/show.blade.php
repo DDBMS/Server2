@@ -38,7 +38,7 @@
                             </div>
                         </div>
                         <hr>
-                        <div>{{base64_decode($data)}}</div>
+                        <div style="white-space: pre-line;">{{base64_decode($data)}}</div>
                     </div>
                 </div>
             </div>
