@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Document List') }}</div>
+                    <div class="card-header">{{ $doc->tag }}</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -28,7 +28,7 @@
                                            id="filename" placeholder="Filename (including extension)"
                                            aria-label="Username" aria-describedby="basic-addon1">
                                 </div>
-                                <a href="data:application/octet-stream;base64,{{$data}}"
+                                <a href="data:{{$doc->mime ?? "application/octet-stream"}};base64,{{$data}}"
                                    download=""
                                    id="download_btn"
                                    class="btn btn-success"

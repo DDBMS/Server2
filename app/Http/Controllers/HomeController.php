@@ -20,6 +20,7 @@ class HomeController extends Controller {
     public function upload(Request $request) {
         $file = $request->file('file');
         $tag = $request->tag;
+        $mime = $request->mime ?? "";
         $doc = new Document();
 
         try {
@@ -44,6 +45,7 @@ class HomeController extends Controller {
             $request->session()->flash('status', $response['tag'] . ' Uploaded!');
             $doc->length = $response['len'];
             $doc->iv     = $response['iv'];
+            $doc->mime   = $mime;
             $doc->save();
             return view('home');
         } else {
@@ -71,7 +73,7 @@ class HomeController extends Controller {
             $request->session()->flash('status', $response['tag'] . ' Got!');
             return view('show')
                 ->with('data', $response['data'])
-                ->with('mime', $doc->mime);
+                ->with('doc', $doc);
         } else {
             $request->session()->flash('status', 'Failed!');
             return redirect(route('home'));
