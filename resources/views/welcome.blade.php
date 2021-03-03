@@ -408,12 +408,39 @@
             @endauth
         </div>
     @endif
+        <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
+            <div class="flex justify-center pt-8 text-center sm:pt-0">
+                <span class="text-center text-xl" style="font-size: 2rem;">DDBMS Demo</span>
+            </div>
+            <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{route('login')}}"
+                                                                                 class="underline text-gray-900 dark:text-white">Login</a>
+                                | <a href="{{route('register')}}"
+                                     class="underline text-gray-900 dark:text-white">Register</a></div>
+                        </div>
+                    </div>
 
-    <div>
-        <h1>DDBMS integrate with Laravel Demo</h1>
-        <br>
+                    <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+                        <div class="flex items-center">
+                            <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{route('home')}}"
+                                                                                 class="underline text-gray-900 dark:text-white">Home</a>
+                            </div>
+                        </div>
 
-    </div>
+                        <div class="ml-12">
+                            <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                                上傳與管理您的檔案。
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
 <!--
     <div class="ml-4 text-center text-sm text-gray-500 fixed-bottom sm:ml-0">
         Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
