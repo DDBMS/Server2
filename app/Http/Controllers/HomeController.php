@@ -58,10 +58,8 @@ class HomeController extends Controller {
         return view('list')->with('documents', Auth::user()->documents()->get());
     }
 
-    public function show(Request $request) {
-        $id = $request->id;
-        $doc = Auth::user()->documents()->find($id)->first();
-
+    public function show(Request $request, $id) {
+        $doc = Auth::user()->documents()->where('id',$id)->first();
         $response = Http::asForm()->post(config('DDBMS.API') . '/file/content', [
             'tag' => $doc->id,
             'key' => Auth::user()->id,
