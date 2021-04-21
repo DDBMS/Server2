@@ -12,7 +12,8 @@ class Document extends Model
     protected $fillable = [
         'tag',
         'length',
-        'iv'
+        'iv',
+        'user_id'
     ];
 
 

@@ -28,12 +28,12 @@ class HomeController extends Controller {
                 'tag' => $tag,
                 'mime' => $file->getClientMimeType()
             ]);
+            $doc->save();
         } catch (\Exception $e) {
             $request->session()->flash('status_custom', 'alert-danger');
             $request->session()->flash('status', 'Database Error!');
             return view('home');
         }
-
         $response = Http::attach(
             'data', file_get_contents($file->getRealPath()), $file->getFilename()
         )->post(config('DDBMS.API') . '/file/upload', [
